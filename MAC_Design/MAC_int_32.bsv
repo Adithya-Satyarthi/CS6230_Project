@@ -27,7 +27,7 @@ interface Wallace_multiplier_ifc;
 	method Bit#(16) wallace_output();
 endinterface : Wallace_multiplier_ifc
 
-(*synthesize*)
+//(*synthesize*)
 module mk_wallace_multiplier(Wallace_multiplier_ifc);
 
 	Csa_ifc csa_unit <- mk_carry_save_adder;
@@ -407,7 +407,7 @@ module mk_wallace_multiplier(Wallace_multiplier_ifc);
 	endmethod : wallace_output
 endmodule : mk_wallace_multiplier
 
-(*synthesize*)
+//(*synthesize*)
 module mk_ripple_carry_adder(Rca_ifc);
 	Reg#(Bit#(32)) rg_inp1 <- mkReg(0);
 	Reg#(Bit#(32)) rg_inp2 <- mkReg(0);
@@ -436,7 +436,7 @@ module mk_ripple_carry_adder(Rca_ifc);
 	endmethod : rca_output
 endmodule : mk_ripple_carry_adder
 
-(*synthesize*)
+//(*synthesize*)
 module mk_carry_save_adder(Csa_ifc);
 		
 	Rca_ifc ripple_carry_adder <- mk_ripple_carry_adder;
