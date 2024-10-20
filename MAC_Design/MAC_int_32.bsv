@@ -481,7 +481,7 @@ endmodule : mk_carry_save_adder
 module mk_mac_int(Mac_int_ifc);
 
 	Wallace_multiplier_ifc wallace_multiplier_unit <- mk_wallace_multiplier;
-	Csa_ifc carry_save_adder_unit <- mk_carry_save_adder;
+	Rca_ifc ripple_carry_adder <- mk_ripple_carry_adder;
 
 	//Registers
 	Reg#(Bit#(8)) rg_inp_1  <- mkReg(0); // Need to later make this FIFO depth 2
@@ -502,12 +502,12 @@ module mk_mac_int(Mac_int_ifc);
 	rule accumulation(multi_ready);
 		Bit#(16) multiplication_ouput =  wallace_multiplier_unit.wallace_output();
 		Bit#(32) input_1 = signExtend(multiplication_ouput);
-		carry_save_adder_unit.csa_input(input_1, 32'b0, rg_inp_3);
+		ripple_carry_adder_unit.rca_input(input_1, rg_inp_3);
 		accumulation_ready <= True;
 	endrule : accumulation 
 
 	rule result(accumulation_ready);
-		rg_out <= carry_save_adder_unit.csa_output();
+		rg_out <= ripple_carry_adder_unit.rca_output();
 		output_ready <= True;
 	endrule : result
 	
