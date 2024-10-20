@@ -1,4 +1,4 @@
-package mac_int_32;
+package mac_int_32_unpipelined;
 
 typedef struct {Bit#(1) sum;
 		Bit#(1) cout;} Adder_output deriving(Bits, Eq); 
@@ -345,4 +345,4 @@ module mk_mac_int(Mac_int_ifc);
 
 endmodule : mk_mac_int
 
-endpackage : mac_int_32
+endpackage : mac_int_32_unpipelined
