@@ -13,7 +13,7 @@ The `MAC_int` module consists of two stages:
 1. **Multiplication**: Implemented using a Wallace Multiplier with a Carry-Save Adder (CSA).
 2. **Accumulation**: Performed using a Ripple Carry Adder (RCA).
 
-#### Wallace Multiplier: The Wallace Multiplier is a hardware-efficient implementation designed to speed up binary multiplication. A naive approach to adding partial products results in a time complexity of $O(log^2(n))$, while the Wallace Multiplier reduces this to $O(log(n))$. Our implementation[^1] further optimizes the delay compared to the standard design.
+**Wallace Multiplier**: The Wallace Multiplier is a hardware-efficient implementation designed to speed up binary multiplication. A naive approach to adding partial products results in a time complexity of $O(log^2(n))$, while the Wallace Multiplier reduces this to $O(log(n))$. Our implementation[^1] further optimizes the delay compared to the standard design.
 
 <div align="center">
 <img src="https://github.com/user-attachments/assets/2d3949b0-f814-47b8-9a4a-4962c795f96e" alt="Wallace Multiplier" width="500" height="400"/>
@@ -21,7 +21,7 @@ The `MAC_int` module consists of two stages:
 
 The final partial sums are combined using a Carry-Save Adder (CSA) to reduce propagation delay due to carry.
 
-#### Accumulation: The accumulation phase uses a standard Ripple Carry Adder (RCA) to sum the result of the multiplication with the input accumulator value (C).
+ **Accumulation**: The accumulation phase uses a standard Ripple Carry Adder (RCA) to sum the result of the multiplication with the input accumulator value (C).
 
 ### 2. MAC_fp Module (Floating-Point Mode)
 The `MAC_fp` module performs multiplication and accumulation in floating-point format, supporting the bf16 (bfloat16) and fp32 (single-precision) data types. 
