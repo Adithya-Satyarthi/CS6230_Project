@@ -329,6 +329,7 @@ module mk_carry_save_adder(Csa_ifc);
 
 endmodule : mk_carry_save_adder
 
+(*synthesize*)
 module mk_mac_int(Mac_int_ifc);
 
 	Wallace_multiplier_ifc wallace_multiplier_unit <- mk_wallace_multiplier;
