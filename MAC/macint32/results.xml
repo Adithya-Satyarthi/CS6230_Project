@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1730129048" />
+    <testcase name="test_macint32" classname="test_macint32" file="/home/shakti/Desktop/macint32/macint32_verif/test_macint32.py" lineno="40" time="275.5732684135437" sim_time_ns="4608105.001" ratio_time="16721.886805380444" />
+  </testsuite>
+</testsuites>

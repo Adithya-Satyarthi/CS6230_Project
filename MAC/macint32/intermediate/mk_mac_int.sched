@@ -1,0 +1,193 @@
+=== Generated schedule for mk_mac_int ===
+
+Method schedule
+---------------
+Method: mac_int_input
+Ready signal: True
+Sequenced before (restricted): mac_int_input
+Sequenced after (restricted): mac_int_output
+ 
+Method: mac_int_output
+Ready signal: output_ready
+Conflict-free: mac_int_output
+Sequenced before (restricted): mac_int_input
+ 
+Rule schedule
+-------------
+Rule: wallace_multiplier_unit_csa_unit_ripple_carry_adder_input_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_csa_unit_ripple_carry_adder_output_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_csa_unit_ripple_carry_adder_addition
+Predicate: wallace_multiplier_unit_csa_unit_ripple_carry_adder_input_ready
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_csa_unit_input_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_csa_unit_output_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_csa_unit_cal_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_csa_unit_calculation
+Predicate: wallace_multiplier_unit_csa_unit_input_ready
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_csa_unit_result
+Predicate: wallace_multiplier_unit_csa_unit_ripple_carry_adder_output_ready &&
+	   wallace_multiplier_unit_csa_unit_cal_ready
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_pp_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_lvl1_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_lvl2_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_lvl3_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_lvl4_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_out_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_level_1
+Predicate: wallace_multiplier_unit_pp_ready
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_level_2
+Predicate: wallace_multiplier_unit_lvl1_ready
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_level_3
+Predicate: wallace_multiplier_unit_lvl2_ready
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_level_4
+Predicate: wallace_multiplier_unit_lvl3_ready
+Blocking rules: (none)
+ 
+Rule: wallace_multiplier_unit_endresult
+Predicate: wallace_multiplier_unit_csa_unit_output_ready &&
+	   wallace_multiplier_unit_lvl4_ready
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_ripple_carry_adder_input_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_ripple_carry_adder_output_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_ripple_carry_adder_addition
+Predicate: carry_save_adder_unit_ripple_carry_adder_input_ready
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_input_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_output_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_cal_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_calculation
+Predicate: carry_save_adder_unit_input_ready
+Blocking rules: (none)
+ 
+Rule: carry_save_adder_unit_result
+Predicate: carry_save_adder_unit_ripple_carry_adder_output_ready &&
+	   carry_save_adder_unit_cal_ready
+Blocking rules: (none)
+ 
+Rule: input_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: output_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: multi_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: accumulation_ready__dreg_update
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: multiplication
+Predicate: input_ready
+Blocking rules: (none)
+ 
+Rule: accumulation
+Predicate: wallace_multiplier_unit_out_ready && multi_ready
+Blocking rules: (none)
+ 
+Rule: result
+Predicate: carry_save_adder_unit_output_ready && accumulation_ready
+Blocking rules: (none)
+ 
+Logical execution order: mac_int_output,
+			 result,
+			 carry_save_adder_unit_result,
+			 carry_save_adder_unit_ripple_carry_adder_addition,
+			 carry_save_adder_unit_calculation,
+			 accumulation,
+			 wallace_multiplier_unit_endresult,
+			 wallace_multiplier_unit_csa_unit_result,
+			 wallace_multiplier_unit_csa_unit_ripple_carry_adder_addition,
+			 wallace_multiplier_unit_csa_unit_calculation,
+			 wallace_multiplier_unit_level_4,
+			 wallace_multiplier_unit_level_3,
+			 wallace_multiplier_unit_level_2,
+			 wallace_multiplier_unit_level_1,
+			 multiplication,
+			 mac_int_input,
+			 wallace_multiplier_unit_csa_unit_ripple_carry_adder_input_ready__dreg_update,
+			 wallace_multiplier_unit_csa_unit_ripple_carry_adder_output_ready__dreg_update,
+			 wallace_multiplier_unit_csa_unit_input_ready__dreg_update,
+			 wallace_multiplier_unit_csa_unit_output_ready__dreg_update,
+			 wallace_multiplier_unit_csa_unit_cal_ready__dreg_update,
+			 wallace_multiplier_unit_pp_ready__dreg_update,
+			 wallace_multiplier_unit_lvl1_ready__dreg_update,
+			 wallace_multiplier_unit_lvl3_ready__dreg_update,
+			 wallace_multiplier_unit_lvl2_ready__dreg_update,
+			 wallace_multiplier_unit_lvl4_ready__dreg_update,
+			 wallace_multiplier_unit_out_ready__dreg_update,
+			 carry_save_adder_unit_ripple_carry_adder_input_ready__dreg_update,
+			 carry_save_adder_unit_ripple_carry_adder_output_ready__dreg_update,
+			 carry_save_adder_unit_input_ready__dreg_update,
+			 carry_save_adder_unit_output_ready__dreg_update,
+			 carry_save_adder_unit_cal_ready__dreg_update,
+			 input_ready__dreg_update,
+			 output_ready__dreg_update,
+			 multi_ready__dreg_update,
+			 accumulation_ready__dreg_update
+
+==========================================
