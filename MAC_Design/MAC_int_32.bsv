@@ -481,7 +481,7 @@ endmodule : mk_carry_save_adder
 module mk_mac_int(Mac_int_ifc);
 
 	Wallace_multiplier_ifc wallace_multiplier_unit <- mk_wallace_multiplier;
-	Rca_ifc ripple_carry_adder <- mk_ripple_carry_adder;
+	Rca_ifc ripple_carry_adder_unit <- mk_ripple_carry_adder;
 
 	//Registers
 	Reg#(Bit#(8)) rg_inp_1  <- mkReg(0); // Need to later make this FIFO depth 2
