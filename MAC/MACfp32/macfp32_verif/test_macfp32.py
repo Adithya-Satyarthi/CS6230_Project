@@ -64,7 +64,7 @@ async def test_macfp32(dut):
 
         	await RisingEdge(dut.CLK)
 
-    for i in range(0, 76296):
+    for i in range(0, 77297):
     	
         #en =int(dut.EN_increment.value)
         
@@ -80,7 +80,7 @@ async def test_macfp32(dut):
         b=lines_B[i][:16]
         c=lines_C[i][:32]
         
-        for k in range(50):
+        for k in range(20):
         	
 
         	await RisingEdge(dut.CLK)
@@ -89,8 +89,9 @@ async def test_macfp32(dut):
         #a=type(macint32_out)
         dut._log.info(f'output {i,dut.mac_fp_input_inp_1.value,dut.mac_fp_input_inp_2.value,dut.mac_fp_input_inp_3.value,dut.mac_fp_output.value,str(macfp32_out).zfill(32) }')
         
-        #if i in [209,]:
+        #if i in [20969,]:
        		#continue
+       		
         
         assert str(macfp32_out).zfill(32)[:30] == str(dut.mac_fp_output.value)[:30], f'Counter Output Mismatch, Expected = {str(macfp32_out).zfill(32)} DUT = {dut.mac_fp_output.value}'
     
