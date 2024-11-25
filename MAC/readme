@@ -1,1 +1,7 @@
+We have uploaded three folders macint32, macfp32 and topmodule. 
+To run the code clone the folder and run the following commands 
+  1. pyenv activate py38
+  2. make generate_verilog
+  3. make simulate
+We have defined coverage for both the individual int and float modules but not for the topmodule. (have included only positive values in the coverage for float)
 
